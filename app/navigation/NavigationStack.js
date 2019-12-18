@@ -5,7 +5,7 @@ import {createDrawerNavigator} from 'react-navigation-drawer';
 import Login from 'app/screens/Login';
 import Home from 'app/screens/Home';
 
-const RNApp = createStackNavigator(
+const StackNavigatorApp = createStackNavigator(
   {
     Login: {
       screen: Login,
@@ -16,6 +16,10 @@ const RNApp = createStackNavigator(
       navigationOptions: {
         title: 'Home',
         gesturesEnabled: true,
+        headerStyle: {
+          backgroundColor: '#f4511e',
+        },
+        headerTintColor: '#fff',
       },
     },
   },
@@ -24,8 +28,14 @@ const RNApp = createStackNavigator(
   },
 );
 
-const AppNavigator = createDrawerNavigator({
-  Home: RNApp,
-});
+const AppNavigator = createDrawerNavigator(
+  {
+    Login: StackNavigatorApp,
+    Home: Home,
+  },
+  {
+    initialRouteName: 'Login',
+  },
+);
 
 export default createAppContainer(AppNavigator);

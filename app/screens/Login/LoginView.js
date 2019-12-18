@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './styles';
 import PropTypes from 'prop-types';
 
-class LoginView extends Component {
+class LoginView extends React.Component {
   navigate = () => {
     this.props.onLogin('username', 'password');
   };
